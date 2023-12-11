@@ -1,21 +1,24 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 const int MF = -1;
 const int N = 11;
-typedef int Vector [N];
+typedef int   Vector [N];
 
-void imprimeTabla(Vector r){
+void imprimeTabla(Vector r, float numEle){
+	cout << setprecision(10);
 	for (int i = 0; i < N; i=i+1) {
-		cout << "Nota " << i << ":" << r[i] << endl;
+		cout << "Nota " << i << ":" << r[i] << " Frec Rel: " << (r[i]/numEle*100) << "%" << endl;
 	}
 	cout << endl;
 }
 
 int main () {
     Vector notas;
-    int numEle;
+    float numEle;
     int EA;
     int i;
+    cout << setprecision(2);
     /* Inicializamos la tabla de frecuencias */
     for (i=0;i < N;i=i+1){
 		notas[i] = 0;
@@ -37,7 +40,7 @@ int main () {
 			cin >> EA;
 		}
 		/* Tratamiento Posterior */
-		imprimeTabla(notas);
+		imprimeTabla(notas,numEle);
 	}
 }
 
